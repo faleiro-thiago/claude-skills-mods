@@ -1,0 +1,8 @@
+{
+  "name": "image-view",
+  "plugin": "image-view@claude-image-view",
+  "marketplace": "claude-image-view",
+  "marketplaceRepo": "jarrodwatts/claude-image-view",
+  "pinnedVersion": "0.2.0",
+  "gitCommitSha": "370b8e7bc0708bebe9762e63534f7ca18bc3e802"
+}
