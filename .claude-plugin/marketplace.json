@@ -14,7 +14,7 @@
     {
       "name": "skins",
       "source": "./skins",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "description": "Skins para o transcript do Claude Code (linhas de ferramenta, calhas de resposta, palavras do spinner), incluindo a skin sunset-peach. /skin troca ao vivo."
     },
     {
