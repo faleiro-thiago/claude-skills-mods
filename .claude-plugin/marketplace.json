@@ -6,8 +6,8 @@
     {
       "name": "statusbar",
       "source": "./statusbar",
-      "version": "0.1.0",
-      "description": "Barra de status com diretório atual, branch git, modelo, modo e plano. Rode /statusbar-setup para ativar."
+      "version": "0.2.0",
+      "description": "Barra de status com diretório atual, branch git, modelo, modo e plano. Ativa-se sozinha ao iniciar a sessão."
     },
     {
       "name": "skins",
