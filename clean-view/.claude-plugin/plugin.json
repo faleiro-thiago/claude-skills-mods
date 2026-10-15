@@ -2,5 +2,8 @@
   "name": "clean-view",
   "version": "0.1.0",
   "description": "A calm, friendly view: hides tool rows and shows one plain-English checklist above the prompt.",
+  "author": {
+    "name": "faleiro-thiago"
+  },
   "types": "./types/index.d.ts"
 }

@@ -1,0 +1,13 @@
+{
+  "name": "statusbar",
+  "version": "0.1.0",
+  "description": "Barra de status com diretório atual, branch git, modelo, modo e plano. Rode /statusbar-setup para ativar.",
+  "author": {
+    "name": "faleiro-thiago"
+  },
+  "license": "MIT",
+  "keywords": [
+    "statusline",
+    "statusbar"
+  ]
+}
