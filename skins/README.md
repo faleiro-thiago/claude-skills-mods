@@ -40,8 +40,8 @@ These previews are drawn by the mod's own card code (`scripts/previews.ts`), not
 Needs Claude Code 2.1.287 or later, in a terminal or the desktop app's Code tab.
 
 ```
-/plugin marketplace add hellosverre/claude-skins
-/plugin install skins@hellosverre-mods
+/plugin marketplace add faleiro-thiago/claude-skills-mods
+/plugin install skins@faleiro-mods
 ```
 
 ## What it redraws
