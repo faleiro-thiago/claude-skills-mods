@@ -1,12 +1,14 @@
 {
   "name": "faleiro-mods",
   "description": "Facilitadores pessoais para Claude Code: statusbar, skins e clean-view.",
-  "owner": { "name": "faleiro-thiago" },
+  "owner": {
+    "name": "faleiro-thiago"
+  },
   "plugins": [
     {
       "name": "statusbar",
       "source": "./statusbar",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "description": "Barra de status com diretório atual, branch git, modelo, modo e plano. Ativa-se sozinha ao iniciar a sessão."
     },
     {
