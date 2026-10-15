@@ -22,4 +22,4 @@ Os três itens também estão disponíveis como marketplace do Claude Code (`fal
 /plugin install clean-view@faleiro-mods
 ```
 
-Depois de instalar o `statusbar`, rode `/statusbar-setup` para apontar o `statusLine` para o script do plugin.
+O `statusbar` se ativa sozinho na próxima sessão (hook de `SessionStart`); `/statusbar-setup` só força a ativação.
