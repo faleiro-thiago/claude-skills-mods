@@ -26,7 +26,20 @@ Conferir de uma vez:
 bash --version | head -1 && command -v jq git awk stat
 ```
 
-## Instalação
+## Instalação pelo marketplace (automática)
+
+```
+/plugin marketplace add faleiro-thiago/claude-skills-mods
+/plugin install statusbar@faleiro-mods
+```
+
+Não há passo extra: um hook de `SessionStart` copia o script para `~/.claude/statusbar/status-bar.sh`
+(caminho sem versão, então atualizar o plugin não quebra a barra) e configura o `statusLine` no
+`settings.json`. Se o plugin foi instalado com a sessão aberta, rode `/reload-plugins` ou reinicie.
+O hook não sobrescreve um `statusLine` de outra ferramenta e avisa se o `jq` não estiver instalado.
+`/statusbar-setup` força a ativação manualmente.
+
+## Instalação manual
 
 O Claude Code chama um comando a cada atualização da statusline. Basta apontar esse comando
 para o `status-bar.sh` deste repositório.

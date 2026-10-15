@@ -63,6 +63,12 @@ de campo precisa do próprio `// empty` ou `// default`.
 Sem `jq` no `PATH` o script não falha: devolve exit 0 e uma linha quase vazia. É o modo de falha
 mais provável em uma máquina nova, e é silencioso — vale suspeitar dele primeiro.
 
+## Ativação automática
+
+`hooks/hooks.json` registra `hooks/ensure-statusline.sh` em `SessionStart`: copia `status-bar.sh` para
+`~/.claude/statusbar/` e grava o `statusLine` no `settings.json` (só se vazio ou já da statusbar).
+Editar `status-bar.sh` no plugin chega ao usuário na próxima sessão, via essa cópia.
+
 ## Caches
 
 Dois arquivos em `/tmp`, chaveados por `session_id`, evitam rodar `git` e `jq` a cada refresh:
