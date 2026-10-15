@@ -1,6 +1,6 @@
 {
   "name": "statusbar",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Barra de status com diretório atual, branch git, modelo, modo e plano. Ativa-se sozinha ao iniciar a sessão.",
   "author": {
     "name": "faleiro-thiago"

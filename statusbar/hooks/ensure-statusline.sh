@@ -32,7 +32,7 @@ esac
 tmp=$(mktemp "${SETTINGS}.XXXXXX") || exit 0
 if jq --arg c "$CMD" '.statusLine = {type:"command", command:$c, padding:0}' "$SETTINGS" > "$tmp"; then
   mv "$tmp" "$SETTINGS"
-  say "ativada. Ela aparece na próxima atualização da tela ou ao reiniciar a sessão."
+  say "ativada. Se a barra não aparecer, reinicie o Claude Code."
 else
   rm -f "$tmp"
 fi

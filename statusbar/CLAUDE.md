@@ -68,6 +68,7 @@ mais provável em uma máquina nova, e é silencioso — vale suspeitar dele pri
 `hooks/hooks.json` registra `hooks/ensure-statusline.sh` em `SessionStart`: copia `status-bar.sh` para
 `~/.claude/statusbar/` e grava o `statusLine` no `settings.json` (só se vazio ou já da statusbar).
 Editar `status-bar.sh` no plugin chega ao usuário na próxima sessão, via essa cópia.
+`SessionStart` só dispara ao iniciar a sessão; `/reload-plugins` registra o hook mas não o executa.
 
 ## Caches
 
