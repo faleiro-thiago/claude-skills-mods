@@ -1,0 +1,6 @@
+{
+  "name": "clean-view",
+  "version": "0.1.0",
+  "description": "A calm, friendly view: hides tool rows and shows one plain-English checklist above the prompt.",
+  "types": "./types/index.d.ts"
+}
