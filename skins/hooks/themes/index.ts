@@ -4,9 +4,9 @@ import gruvbox from './gruvbox'
 import mono from './mono'
 import noir from './noir'
 import nord from './nord'
-import sunsetPeach from './sunset-peach'
+import faleiroSkin from './faleiro-skin'
 import tokyoNight from './tokyo-night'
 import type { Skin } from '../skin'
 
 // A new built-in skin is one file beside these and one line here. The first is the default.
-export const SKINS: readonly Skin[] = [noir, tokyoNight, dracula, nord, gruvbox, catppuccin, mono, sunsetPeach]
+export const SKINS: readonly Skin[] = [noir, tokyoNight, dracula, nord, gruvbox, catppuccin, mono, faleiroSkin]

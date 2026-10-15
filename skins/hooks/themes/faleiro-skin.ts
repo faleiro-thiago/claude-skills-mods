@@ -1,8 +1,8 @@
 import type { Skin } from '../skin'
 
 const skin: Skin = {
-  name: 'sunset-peach',
-  label: 'Sunset Peach',
+  name: 'faleiro-skin',
+  label: 'Faleiro Skin',
   palette: {
     read: '#f2b385',
     write: '#f7607e',
