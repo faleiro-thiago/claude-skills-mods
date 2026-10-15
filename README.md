@@ -5,7 +5,7 @@ Facilitadores pessoais para Claude Code. Cada item tem versão própria (`VERSIO
 |---|---|
 | clean-view | mod próprio |
 | statusbar | cópia modificada de magacho/claude-code-statusbar (MIT) |
-| skins | código de hellosverre/claude-skins 0.1.1 (MIT) + skin própria `sunset-peach` |
+| skins | código de hellosverre/claude-skins 0.1.1 (MIT) + skin própria `faleiro-skin` |
 
 filetree e image-view são públicos e instalados direto das fontes originais pelo `install.sh`.
 

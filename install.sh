@@ -2,10 +2,10 @@
 # Reinstala os itens numa máquina nova. Requer: claude CLI.
 set -euo pipefail
 D="$(cd "$(dirname "$0")" && pwd)"
-claude plugin marketplace add hellosverre/claude-skins || true
-claude plugin install skins@hellosverre-mods || true
+claude plugin marketplace add faleiro-thiago/claude-skills-mods || true
+claude plugin install skins@faleiro-mods || true
 mkdir -p ~/.claude/plugins/store
-cp "$D/skins/config/skins_hellosverre-mods.json" ~/.claude/plugins/store/skins_hellosverre-mods-8037c34839ba.json
+cp "$D/skins/config/skins_faleiro-mods.json" ~/.claude/plugins/store/skins_faleiro-mods-fed16347994a.json
 claude plugin marketplace add data-goblin/claude-code-filetree || true
 claude plugin install filetree@claude-code-filetree || true
 claude plugin marketplace add jarrodwatts/claude-image-view || true
