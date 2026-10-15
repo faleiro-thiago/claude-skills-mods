@@ -1,8 +1,0 @@
-{
-  "name": "skins",
-  "plugin": "skins@hellosverre-mods",
-  "marketplace": "hellosverre-mods",
-  "marketplaceRepo": "hellosverre/claude-skins",
-  "pinnedVersion": "0.1.1",
-  "gitCommitSha": "342fbc0dd49ec44c824ed9c8eb95cd4927d7f81a"
-}
