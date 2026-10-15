@@ -2,7 +2,7 @@ import { expect, mock, test } from 'claude-code/testing'
 import type { Engine } from 'claude-code/testing'
 import type { On } from 'claude-code'
 
-import { applyPlan, applyProgress, cleanName } from '../hooks/clean-view'
+import { applyPlan, applyProgress, asksUser, cleanName } from '../hooks/clean-view'
 
 const SURFACES = ['terminal', 'desktop'] as const
 
@@ -208,4 +208,34 @@ test('the band keeps what is beneath it, such as image-view thumbnails', async (
     expect(await ui.find({ key: 'beneath' })).toBeDefined()
     await ui.unmount()
   }
+})
+
+test('a turn that ends with steps unreported still says All done', async ($, on) => {
+  await start($, on)
+  await $.turn.start({ text: 'Delete my backups', turnId: 't1' })
+  await $.tool.call({ tool: 'mcp__clean-view__plan_steps', steps: ['List the backups', 'Delete them'] })
+  await $.turn.complete({ answer: 'Deleted both files.', durationMs: 3_000, isAborted: false, turnId: 't1', reason: 'answer' })
+
+  const ui = await $.ui.mount({ ...BAND, surface: 'terminal' })
+  expect(await ui.find({ type: 'Text', text: /Tudo pronto/ })).toBeDefined()
+  expect(await ui.findAll({ type: 'Text', text: /Precisa de você/ })).toHaveLength(0)
+})
+
+test('a turn that ends on a question with steps left says Needs you', async ($, on) => {
+  await start($, on)
+  await $.turn.start({ text: 'Clean my folder', turnId: 't1' })
+  await $.tool.call({ tool: 'mcp__clean-view__plan_steps', steps: ['Find old files', 'Delete them'] })
+  await $.turn.complete({ answer: 'Found 3 old files. Delete them?', durationMs: 3_000, isAborted: false, turnId: 't1', reason: 'answer' })
+
+  const ui = await $.ui.mount({ ...BAND, surface: 'terminal' })
+  expect(await ui.find({ type: 'Text', text: /Precisa de você/ })).toBeDefined()
+})
+
+test('asksUser spots a closing question and ignores the rest', () => {
+  expect(asksUser('Quer que eu faça?')).toBe(true)
+  expect(asksUser('**Quer que eu faça?**')).toBe(true)
+  expect(asksUser('Quer que eu faça?\n')).toBe(true)
+  expect(asksUser('Feito. O que era `a?b` já passou.')).toBe(false)
+  expect(asksUser('Feito.')).toBe(false)
+  expect(asksUser(undefined)).toBe(false)
 })

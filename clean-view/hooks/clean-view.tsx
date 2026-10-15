@@ -289,6 +289,16 @@ async function setEnabled($: Engine, isEnabled: boolean) {
   await syncTicker($)
 }
 
+/** A turn that ends on a question is waiting for the person; any other ending means the work is over. */
+export function asksUser(answer: unknown): boolean {
+  return typeof answer === 'string' && /\?[\s"'”’)\]*_]*$/.test(answer.trimEnd())
+}
+
+/** The turn ended normally: steps the model forgot to report are done. */
+export function closeTasks(list: Checklist): Checklist {
+  return { ...list, tasks: list.tasks.map((one): Task => (one.status === 'done' ? one : { ...one, status: 'done', percent: 100 })) }
+}
+
 async function needsYou($: Engine, reason: string) {
   await mutate($, list => (list && isRunning(list) ? { ...list, phase: 'needsYou', needsYouReason: reason } : list))
 }
@@ -562,9 +572,10 @@ export function registerCleanView(on: On): void {
         await stuck($, REASONS.refusal)
       } else if (e.reason === 'aborted') {
         await mutate($, (cur, now) => (cur ? { ...cur, phase: 'stopped', finishedAt: now, needsYouReason: null } : cur))
-      } else if (list.isPlanned && list.tasks.some(one => one.status !== 'done')) {
+      } else if (list.isPlanned && list.tasks.some(one => one.status !== 'done') && asksUser(e.answer)) {
         await needsYou($, REASONS.waiting)
       } else {
+        await mutate($, cur => (cur ? closeTasks(cur) : cur))
         await finish($)
       }
     }

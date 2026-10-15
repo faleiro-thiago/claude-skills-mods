@@ -20,7 +20,7 @@
     {
       "name": "clean-view",
       "source": "./clean-view",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "description": "Visão calma: esconde as linhas de ferramenta e mostra um checklist em português simples acima do prompt."
     }
   ]
