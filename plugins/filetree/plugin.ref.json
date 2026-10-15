@@ -1,0 +1,8 @@
+{
+  "name": "filetree",
+  "plugin": "filetree@claude-code-filetree",
+  "marketplace": "claude-code-filetree",
+  "marketplaceRepo": "data-goblin/claude-code-filetree",
+  "pinnedVersion": "0.2.24",
+  "gitCommitSha": "da1da65724c54541f4a0ec5ddd26641b1a0d672a"
+}
