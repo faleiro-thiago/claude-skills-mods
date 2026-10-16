@@ -1,4 +1,9 @@
 # Changelog — statusbar
+## 0.3.0
+- ativação assume o lugar de um statusLine de outra ferramenta na primeira vez, com backup em ~/.claude/statusbar/statusline-anterior.json; troca posterior do usuário é respeitada
+- /statusbar-setup força a ativação; /statusbar-setup restaurar devolve o statusLine anterior
+## 0.2.2
+- Windows: o diretório mostra só o nome da pasta também quando o caminho vem com contrabarra (C:\Users\...\proj)
 ## 0.2.1
 - docs e mensagem do hook: SessionStart só roda ao iniciar a sessão, /reload-plugins não o dispara; reiniciar o Claude Code
 ## 0.2.0

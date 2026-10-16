@@ -66,7 +66,11 @@ mais provável em uma máquina nova, e é silencioso — vale suspeitar dele pri
 ## Ativação automática
 
 `hooks/hooks.json` registra `hooks/ensure-statusline.sh` em `SessionStart`: copia `status-bar.sh` para
-`~/.claude/statusbar/` e grava o `statusLine` no `settings.json` (só se vazio ou já da statusbar).
+`~/.claude/statusbar/` e grava o `statusLine` no `settings.json`. Um `statusLine` de outra ferramenta
+é substituído só na primeira ativação: o anterior vai para `~/.claude/statusbar/statusline-anterior.json`
+e o marcador `~/.claude/statusbar/.ativada` passa a existir. Com o marcador, uma troca posterior feita
+pelo usuário é respeitada. `--forcar` ignora o marcador; `--restaurar` devolve o backup (usados por
+`/statusbar-setup`).
 Editar `status-bar.sh` no plugin chega ao usuário na próxima sessão, via essa cópia.
 `SessionStart` só dispara ao iniciar a sessão; `/reload-plugins` registra o hook mas não o executa.
 

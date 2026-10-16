@@ -28,11 +28,17 @@ thinking=$(j '.thinking.enabled // false')
 style=$(j '.output_style.name // "default"')
 ctx=$(j '.context_window.used_percentage // empty'); ctx=${ctx%.*}
 
-# só o nome do diretório atual (ex.: /mcp_noc), não o caminho completo
+# só o nome do diretório atual (ex.: /mcp_noc), não o caminho completo.
+# No Windows o harness manda C:\Users\...\proj, então corta em / e em \.
 dirdisp=""
 if [ -n "$cwd" ]; then
-  dirdisp="/${cwd##*/}"
-  [ "$cwd" = "/" ] && dirdisp="/"
+  d="${cwd%[/\\]}"            # tira separador final (ex.: C:\proj\)
+  base="${d##*[/\\]}"
+  case "$base" in
+    "")  dirdisp="/" ;;          # raiz Unix
+    *:)  dirdisp="${base}\\" ;;  # raiz de drive (C:\)
+    *)   dirdisp="/${base}" ;;
+  esac
 fi
 
 # ---------- branch (git) com cache por sessão ----------

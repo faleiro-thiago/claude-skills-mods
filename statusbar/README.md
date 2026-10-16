@@ -36,8 +36,13 @@ bash --version | head -1 && command -v jq git awk stat
 Não há passo extra: um hook de `SessionStart` copia o script para `~/.claude/statusbar/status-bar.sh`
 (caminho sem versão, então atualizar o plugin não quebra a barra) e configura o `statusLine` no
 `settings.json`. O hook só roda quando uma sessão começa (`/reload-plugins` não o dispara): se o plugin foi instalado com a sessão aberta, reinicie o Claude Code.
-O hook não sobrescreve um `statusLine` de outra ferramenta e avisa se o `jq` não estiver instalado.
-`/statusbar-setup` força a ativação manualmente.
+Se já existir um `statusLine` de outra ferramenta, a statusbar assume o lugar na primeira ativação
+e guarda o anterior em `~/.claude/statusbar/statusline-anterior.json`. Se depois você voltar a
+trocar o `statusLine`, o hook respeita a escolha e não o sobrescreve de novo. O hook também avisa
+se o `jq` não estiver instalado.
+
+- `/statusbar-setup` força a ativação agora (mesmo que outro `statusLine` tenha sido configurado depois).
+- `/statusbar-setup restaurar` devolve o `statusLine` anterior.
 
 ## Instalação manual
 
